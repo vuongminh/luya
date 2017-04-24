@@ -159,15 +159,15 @@ return [
       'block_group_text_elements' => 'Textos',
 
       // rc1
-      'block_table_enable_markdown' => 'Habilitar reducción',
+      'block_table_enable_markdown' => 'Habilitar markdown',
       'block_layout_row_column_css_class' => 'Clases CSS para div de diseño',
       'block_image_cfg_css_class' => 'Clases CSS para la imagen',
       'block_cfg_additonal_css_class' => 'Clases CSS',
 
       // rc2
-      'block_group_media_group' =>  'Medio',
-        
-    // 1.0.0
+      'block_group_media_group' =>  'Media',
+
+       // rc3
       'block_audio_admin_nourl' => 'No se ha establecido ningún código de audio incorporado.',
       'block_audio_admin_hasurl' => 'Se ha ajustado el código de audio incorporado.',
       'block_file_list_admin_empty' => 'No se ha seleccionado aún ningún archivo.',
@@ -176,4 +176,10 @@ return [
       'block_spacing_small_space' => 'Espacio pequeño',
       'block_spacing_medium_space' => 'Espacio medio',
       'block_spacing_large_space' => 'Gran espacio',
+
+    // 1.0.0
+    'block_module_strictrender' => 'Render estricto',
+    'block_module_strictrender_help' => 'Cuando se habilita el procesamiento estricto, el módulo sólo ejecutará la ruta proporcionada (módulo, controlador, acción, parámetros) sin escuchar las rutas de acción y controlador.',
+	'block_html_cfg_raw_label' => 'Renderizar HTML en Admin',
+
 ];

@@ -121,7 +121,6 @@ abstract class Module extends \yii\base\Module
      * ```php
      * Yii::t('luya/admin', 'MyVariableInAdminPhp');
      * ```
-     * @since 1.0.0-beta3
      */
     public $translations = [];
 
@@ -175,8 +174,8 @@ abstract class Module extends \yii\base\Module
      * Extract the current module from the route and return the new resolved route.
      *
      * @param string $route Route to resolve, e.g. `admin/default/index`
-     *
-     * @return string
+     * @return string The resolved route without the module id `default/index` when input was `admin/default/index`
+     * and the current module id is `admin`.
      */
     public function resolveRoute($route)
     {
@@ -252,7 +251,6 @@ abstract class Module extends \yii\base\Module
      * id of this controller and value the file on the server.
      *
      * @return array Returns an array where the key is the controller id and value the original file.
-     * @since 1.0.0-beta5
      */
     public function getControllerFiles()
     {
@@ -266,5 +264,18 @@ abstract class Module extends \yii\base\Module
         } catch (InvalidParamException $e) {
             return [];
         };
+    }
+    
+    /**
+     * Overrides the yii2 default behavior by not throwing an exception if no alias has been defined 
+     * for the controller namespace. Otherwise each module requires an alias for its first namepsace entry
+     * which results into exception for external modules without an alias.
+     * exception.
+     * 
+     * @inheritdoc
+     */
+    public function getControllerPath()
+    {
+        return Yii::getAlias('@' . str_replace('\\', '/', $this->controllerNamespace), false);
     }
 }
